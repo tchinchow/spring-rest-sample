@@ -33,19 +33,29 @@ mvn spring-boot:run
 
 ### **Use the application**
 Once the server is running you can:
-- go to `http://yourserver:tomcatport/h2` and browse the database.
+- go to "`http://yourserver:tomcatport/h2`" and browse the database.
 - Use [PostMan](https://www.getpostman.com/) to craft requests for your API:
 
-#### HelloWorld Service
-| Method | URL | Parameters | Result |
-|--------|-----|------------|--------|
-| GET    | `/api/helloworld` | _none_ | "Hello "World" |
-| GET    | `/api/helloworld/{id}` | id=1 | "Hello bob" |
+  _**HelloWorld Service**_:
+  | Method | URL | Parameters | Result |
+  |--------|-----|------------|--------|
+  | GET    | `/api/helloworld` | _none_ | "Hello "World" |
+  | GET    | `/api/helloworld/{id}` | id=1 | "Hello bob" |
+  
+  _**Users Service**_:
+  | Method | URL | Parameters |
+  |--------|-----|------------|
+  | GET    | `/api/users` | _none_ |
+  | POST   | `/api/users` | name=bob&age=72 |
+  | PUT    | `/api/users/{id}` | name=marzel&age=18 |
+  | DELETE | `/api/users/{id}` | _none_ |
 
-#### Users Service
-| Method | URL | Parameters |
-|--------|-----|------------|
-| GET    | `/api/users` | _none_ |
-| POST   | `/api/users` | name=bob&age=72 |
-| PUT    | `/api/users/{id}` | name=marzel&age=18 |
-| DELETE | `/api/users/{id}` | _none_ |
+- go to "`http://yourserver:tomcatport/app/hello?name=pouet`" to
+  display the hello world app page _(Thymeleaf)_.
+  This page will display the name passed in parameter, AND it will
+  list all the users by their names...
+
+- alternatively go to "`http://yourserver:tomcatport/`" to
+  display the same hello world app page.
+  This page will display a generic message from the application
+  properties, AND it will also list all the users by their names...
